@@ -1,6 +1,6 @@
 git2go
 ======
-[![GoDoc](https://godoc.org/github.com/libgit2/git2go?status.svg)](http://godoc.org/github.com/libgit2/git2go/v34) [![Build Status](https://travis-ci.org/libgit2/git2go.svg?branch=main)](https://travis-ci.org/libgit2/git2go)
+[![GoDoc](https://godoc.org/github.com/libgit2/git2go?status.svg)](http://godoc.org/github.com/sgrankin/git2go) [![Build Status](https://travis-ci.org/libgit2/git2go.svg?branch=main)](https://travis-ci.org/libgit2/git2go)
 
 Go bindings for [libgit2](http://libgit2.github.com/).
 
@@ -23,10 +23,10 @@ Due to the fact that Go 1.11 module versions have semantic meaning and don't nec
 You can import them in your project with the version's major number as a suffix. For example, if you have libgit2 v1.2 installed, you'd import git2go v34 with:
 
 ```sh
-go get github.com/libgit2/git2go/v34
+go get github.com/sgrankin/git2go
 ```
 ```go
-import "github.com/libgit2/git2go/v34"
+import "github.com/sgrankin/git2go"
 ```
 
 which will ensure there are no sudden changes to the API.
@@ -50,7 +50,7 @@ This project wraps the functionality provided by libgit2. If you're using a vers
 When linking dynamically against a released version of libgit2, install it via your system's package manager. CGo will take care of finding its pkg-config file and set up the linking. Import via Go modules, e.g. to work against libgit2 v1.2
 
 ```go
-import "github.com/libgit2/git2go/v34"
+import "github.com/sgrankin/git2go"
 ```
 
 ### Versioned branch, static linking
@@ -80,7 +80,7 @@ In order to let Go pass the correct flags to `pkg-config`, `-tags static` needs 
 
 One thing to take into account is that since Go expects the `pkg-config` file to be within the same directory where `make install-static` was called, so the `go.mod` file may need to have a [`replace` directive](https://github.com/golang/go/wiki/Modules#when-should-i-use-the-replace-directive) so that the correct setup is achieved. So if `git2go` is checked out at `$GOPATH/src/github.com/libgit2/git2go` and your project at `$GOPATH/src/github.com/my/project`, the `go.mod` file of `github.com/my/project` might need to have a line like
 
-    replace github.com/libgit2/git2go/v34 => ../../libgit2/git2go
+    replace github.com/sgrankin/git2go => ../../libgit2/git2go
 
 Parallelism and network operations
 ----------------------------------
